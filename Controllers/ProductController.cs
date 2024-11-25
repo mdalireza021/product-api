@@ -36,15 +36,6 @@ namespace product_api.Controllers
         [HttpPost]
         public IActionResult CreateProduct([FromBody] ProductCreateDto productData)
         {
-            if (string.IsNullOrEmpty(productData.Name))
-            {
-                return BadRequest("product name is required");
-            }
-            if (productData.Name.Length < 2)
-            {
-                return BadRequest("product name must be atleast 2 character");
-            }
-
             var newProduct = new Product
             {
                 Id = Guid.NewGuid(),
